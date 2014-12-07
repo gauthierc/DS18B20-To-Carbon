@@ -33,6 +33,7 @@ import re
 #change this to your carbon server and port
 CARBON_SERVER = '10.10.0.5'
 CARBON_PORT = 2003
+CARBON_PREFIX = 'site1'
 
 
 delay = 20
@@ -78,7 +79,7 @@ while True:
         lines = []
         i = 0
         for sensor in listOfSensors:
-                lines.append("%s %s %d" % (sensor,sensorData[i],now))
+                lines.append("%s.%s %s %d" % (CARBON_PREFIX,sensor,sensorData[i],now))
                 i=i+1
 
 
